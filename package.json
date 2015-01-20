@@ -1,0 +1,37 @@
+{
+  "name": "filter-values",
+  "description": "Filter an object to have only the `own` properties for which a `callback` function returns true.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/jonschlinkert/filter-values",
+  "author": {
+    "name": "Jon Schlinkert",
+    "url": "https://github.com/jonschlinkert"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jonschlinkert/filter-values.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/filter-values/issues"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/jonschlinkert/filter-values/blob/master/LICENSE-MIT"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "keywords": [],
+  "dependencies": {
+    "for-own": "^0.1.2",
+    "make-iterator": "^0.1.1"
+  }
+}
