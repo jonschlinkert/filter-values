@@ -1,7 +1,7 @@
 {
   "name": "filter-values",
-  "description": "Filter an object to have only the `own` properties for which a `callback` function returns true.",
-  "version": "1.0.0",
+  "description": "Filter an object values using glob patterns or with a `callback` function returns true. ",
+  "version": "0.1.0",
   "homepage": "https://github.com/jonschlinkert/filter-values",
   "author": {
     "name": "Jon Schlinkert",
@@ -32,6 +32,7 @@
   "keywords": [],
   "dependencies": {
     "for-own": "^0.1.2",
-    "make-iterator": "^0.1.1"
+    "make-iterator": "^0.1.1",
+    "micromatch": "^1.0.1"
   }
 }

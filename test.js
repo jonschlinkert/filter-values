@@ -31,4 +31,12 @@ describe('.filter()', function () {
     });
     o.should.eql({});
   });
+
+  it('should work with `micromatch` glob patterns', function () {
+    var o = filter({a: 'a', b: 'bbd', c: 'bca2'}, ['b*', '!bc*']);
+    o.should.eql({b: 'bbd'});
+
+    var o = filter({a: 'a', b: 'bbd', c: 'bca2'}, '!b*');
+    o.should.eql({a: 'a'})
+  });
 });
