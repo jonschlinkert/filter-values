@@ -2,11 +2,12 @@
  * filter-values <https://github.com/jonschlinkert/filter-values>
  *
  * Copyright (c) 2015, Jon Schlinkert.
- * Licensed under the MIT License
+ * Licensed under the MIT License.
  */
 
 'use strict';
 
+/* deps:mocha */
 var should = require('should');
 var filter = require('./');
 
