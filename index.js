@@ -2,12 +2,12 @@
  * filter-values <https://github.com/jonschlinkert/filter-values>
  *
  * Copyright (c) 2015, Jon Schlinkert.
- * Licensed under the MIT license.
+ * Licensed under the MIT License.
  */
 
-var mm = require('micromatch');
 var forOwn = require('for-own');
 var iterator = require('make-iterator');
+var mm = require('micromatch');
 
 /**
  * Filter an object values using glob patterns
@@ -18,10 +18,10 @@ var iterator = require('make-iterator');
  * @param  {Object} `thisArg`
  * @return {Object}
  */
-module.exports = function filterValues(obj, filter, thisArg) {
-  var res = {};
-  var cb = makeIterator(filter, thisArg);
 
+module.exports = function filterValues(obj, filter, thisArg) {
+  var cb = matcher(filter, thisArg);
+  var res = {};
   forOwn(obj, function (val, key, o) {
     if (cb(val, key, o)) {
       res[key] = val;
@@ -30,10 +30,10 @@ module.exports = function filterValues(obj, filter, thisArg) {
   return res;
 };
 
-function makeIterator(filter, thisArg) {
+function matcher(filter, thisArg) {
   if (Array.isArray(filter) || typeof filter === 'string') {
     return function (val) {
-      return mm(val, filter).length ? true : false;
+      return !!mm(val, filter).length;
     };
   }
   return iterator(filter, thisArg)
