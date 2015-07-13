@@ -6,35 +6,26 @@
  */
 
 var forOwn = require('for-own');
-var iterator = require('make-iterator');
-var mm = require('micromatch');
+var matcher = require('is-match');
 
 /**
  * Filter an object values using glob patterns
  * or with a `callback` function returns true.
  *
  * @param  {Object} `obj`
- * @param  {Function|Array|String} `filter`
- * @param  {Object} `thisArg`
+ * @param  {Function|Array|String|RegExp} `filter`
+ * @param  {Object} `options` pass options to `micromatch`
  * @return {Object}
  */
 
-module.exports = function filterValues(obj, filter, thisArg) {
-  var cb = matcher(filter, thisArg);
+module.exports = function filterValues(obj, filter, options) {
+  var isMatch = matcher(filter, options);
   var res = {};
+
   forOwn(obj, function (val, key, o) {
-    if (cb(val, key, o)) {
+    if (isMatch(val)) {
       res[key] = val;
     }
   });
   return res;
 };
-
-function matcher(filter, thisArg) {
-  if (Array.isArray(filter) || typeof filter === 'string') {
-    return function (val) {
-      return !!mm(val, filter).length;
-    };
-  }
-  return iterator(filter, thisArg)
-}
