@@ -23,7 +23,7 @@ module.exports = function filterValues(obj, filter, options) {
   var res = {};
 
   forOwn(obj, function (val, key) {
-    if (isMatch(val)) {
+    if (isMatch(val,key)) {
       res[key] = val;
     }
   });
