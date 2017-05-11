@@ -18,12 +18,12 @@ describe('.filter()', function () {
     });
     o.should.eql({ b: 'b' });
 
-    o = filter({a: 'a', b: 'b', c: 'c'}, function (value,key) {
+    o = filter({a: 'a', b: 'b', c: 'c'}, function (value, key) {
       return key === 'b';
     });
     o.should.eql({ b: 'b' });
 
-    o = filter({a: 'a', b: 'b', c: 'c'}, function (value,key,obj) {
+    o = filter({a: 'a', b: 'b', c: 'c'}, function (value, key, obj) {
       return obj[key] === 'b';
     });
     o.should.eql({ b: 'b' });
