@@ -28,6 +28,7 @@
     "is-match": "^0.4.0"
   },
   "devDependencies": {
+    "gulp-format-md": "^0.1.12",
     "mocha": "*",
     "should": "*"
   },
@@ -63,6 +64,17 @@
         "rename-keys",
         "sort-object"
       ]
+    },
+    "toc": false,
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "lint": {
+      "reflinks": true
     }
   }
 }
