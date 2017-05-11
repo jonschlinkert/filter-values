@@ -22,6 +22,11 @@ describe('.filter()', function () {
       return key === 'b';
     });
     o.should.eql({ b: 'b' });
+
+    o = filter({a: 'a', b: 'b', c: 'c'}, function (value,key,obj) {
+      return obj[key] === 'b';
+    });
+    o.should.eql({ b: 'b' });
   });
 
   it('should omit values for which the callback returns false.', function () {
