@@ -19,21 +19,15 @@ $ yarn add filter-values
 ## Usage
 
 ```js
-var filter = require('filter-values');
+const filter = require('filter-values');
 
-filter({a: 'a', b: 'b', c: 'c'}, function(value, key, obj) {
-  return key !== 'b';
-});
+filter({a: 'a', b: 'b', c: 'c'}, (value, key, obj) => key !== 'b');
 //=> {a: 'a', c: 'c'}
 
-filter({a: 'a', b: 'b', c: 'c'}, function(value, key, obj) {
-  return key === 'b';
-});
+filter({a: 'a', b: 'b', c: 'c'}, (value, key, obj) => key === 'b');
 //=> {b: 'b'}
 
-filter({a: 'a', b: 'b', c: 'c'}, function(value, key, obj) {
-  return value === 'b';
-});
+filter({a: 'a', b: 'b', c: 'c'}, (value, key, obj) => value === 'b');
 //=> {b: 'b'}
 
 filter({a: 'a', b: 'bbd', c: 'bca2'}, ['b*', '!bc*'])
